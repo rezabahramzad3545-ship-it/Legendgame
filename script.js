@@ -180,3 +180,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1000);
 });
+// اضافه کردن این تابع
+function inviteFriends() {
+    // دریافت اطلاعات کاربر از تلگرام
+    const user = window.Telegram.WebApp.initDataUnsafe.user;
+    const userId = user ? user.id : 'unknown';
+    
+    // ساخت لینک دعوت
+    const botUsername = 'your_bot_username'; // اسم یوزرنیم ربات خودتون رو بذارید
+    const inviteLink = `https://t.me/${botUsername}?start=ref_${userId}`;
+    
+    // باز کردن لینک دعوت در تلگرام
+    window.Telegram.WebApp.openTelegramLink(`https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent('به بازی جذاب من بپیوند!')}`);
+}
+
+// اضافه کردن این ایونت لیسنر در DOMContentLoaded
+document.getElementById('invite-btn').addEventListener('click', inviteFriends);
