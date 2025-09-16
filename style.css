@@ -241,3 +241,37 @@ h1 {
     font-size: 0.9rem;
     color: #ffd700;
 }
+// اضافه کردن متغیر سطح
+let level = 1;
+
+// تابع چک کردن سطح
+function checkLevelUp() {
+    const newLevel = Math.floor(score / 5000) + 1;
+    if (newLevel > level) {
+        level = newLevel;
+        maxEnergy += 50; // افزایش انرژی ماکسیمم
+        energy = maxEnergy; // پر کردن انرژی
+        alert(`تبریک! به سطح ${level} ارتقاء یافتید!`);
+        updateDisplay();
+    }
+}
+
+// به‌روزرسانی تابع handleClick
+function handleClick() {
+    if (energy >= clickPower) {
+        // ... کد قبلی ...
+        
+        // چک کردن سطح
+        checkLevelUp();
+    } else {
+        alert('انرژی کافی ندارید!');
+    }
+}
+
+// به‌روزرسانی تابع updateDisplay
+function updateDisplay() {
+    document.getElementById('score').textContent = score;
+    document.getElementById('energy').textContent = energy;
+    document.getElementById('max-energy').textContent = maxEnergy;
+    document.getElementById('level').textContent = level;
+}
