@@ -78,3 +78,137 @@ h1 {
         font-size: 1rem;
     }
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tahoma', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    direction: rtl;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.game-area {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.character {
+    font-size: 80px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    user-select: none;
+    margin: 20px 0;
+    animation: pulse 2s infinite;
+}
+
+.character:active {
+    transform: scale(0.95);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.score, .energy {
+    font-size: 1.1rem;
+    margin: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
+    border-radius: 10px;
+    min-width: 120px;
+}
+
+.boosts {
+    margin: 20px 0;
+}
+
+.boost-btn {
+    background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+    border: none;
+    color: #1a1a2e;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.boost-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.boost-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .character {
+        font-size: 60px;
+    }
+    
+    .score, .energy {
+        font-size: 0.9rem;
+        min-width: 100px;
+        padding: 8px 12px;
+    }
+    
+    .boost-btn {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+        margin: 5px;
+    }
+    
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+}
